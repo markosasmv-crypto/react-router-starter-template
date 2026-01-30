@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Continue</title>
+  <script async src="//d.smopy.com/d/?resource=pubJS"></script>
+  <style>
+    :root{
+      --bg1:#050b18;
+      --bg2:#0b1f3a;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.12);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+      --a1:#7c3aed;
+      --a2:#06b6d4;
+      --btn:#ffffff;
+      --btnText:#0b1220;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--text);}
+    body{
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(124,58,237,.35), transparent 55%),
+                  radial-gradient(900px 600px at 80% 30%, rgba(6,182,212,.28), transparent 55%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2));
+      display:flex; align-items:center; justify-content:center;
+      padding:18px;
+      overflow:hidden;
+    }
+
+    .wrap{width:min(520px, 100%); position:relative;}
+    .card{
+      background: var(--card);
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      padding:18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .top{
+      display:flex; gap:12px; align-items:center; margin-bottom:12px;
+    }
+    .badge{
+      width:44px; height:44px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(6,182,212,.85));
+      display:grid; place-items:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .badge svg{width:22px; height:22px; fill:#fff}
+    h1{font-size:18px; margin:0; letter-spacing:.2px}
+    p{margin:6px 0 0; color:var(--muted); font-size:13.5px; line-height:1.35}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .btn{
+      -webkit-tap-highlight-color: transparent;
+      width:100%;
+      border:0;
+      border-radius:14px;
+      padding:14px 14px;
+      font-size:15px;
+      font-weight:700;
+      background: var(--btn);
+      color: var(--btnText);
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      cursor:pointer;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--stroke);
+      box-shadow:none;
+      font-weight:650;
+    }
+
+    .fine{
+      margin-top:12px;
+      font-size:12px;
+      color: rgba(234,240,255,.62);
+      text-align:center;
+    }
+
+    .dots{
+      display:flex; justify-content:center; gap:6px; margin-top:10px;
+    }
+    .dot{
+      width:7px; height:7px; border-radius:50%;
+      background: rgba(255,255,255,.25);
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+    .dot:nth-child(2){animation-delay:.15s}
+    .dot:nth-child(3){animation-delay:.3s}
+    @keyframes pulse{
+      0%,100%{transform:translateY(0); opacity:.35}
+      50%{transform:translateY(-3px); opacity:.9}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap" id="page">
+    <section class="card">
+      <div class="top">
+        <div class="badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm-1 14.5-4-4 1.414-1.414L11 13.672l5.586-5.586L18 9.5Z"/></svg>
+        </div>
+        <div>
+          <h1>One more step</h1>
+          <p>Tap <b>Continue</b> to proceed. If nothing happens, use the button below.</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <button class="btn" id="goBtn">Continue</button>
+        <button class="btn secondary" id="altBtn">Open in new tab</button>
+      </div>
+
+      <div class="dots" aria-hidden="true">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+
+      <div class="fine">
+        Auto-redirect in <span id="sec">5</span>s
+      </div>
+    </section>
+  </main>
+
+  <script>
+(function () {
+  var ua = navigator.userAgent;
+
+  var isAndroid = /Android/i.test(ua);
+  var isChrome  = /Chrome\/[0-9]+/i.test(ua) && !/Edg|OPR|SamsungBrowser/i.test(ua);
+  var isMobile  = /Mobile/i.test(ua);
+
+  if (isAndroid && isChrome && isMobile) {
+    // ✅ LEIDŽIAMI: Android Chrome telefonai
+    window.open("https://prpops.com/p/1klx7/direct", "_blank");
+  } else {
+    // ❌ VISI KITI → 403
+    window.location.href = "https://neon.ly/aJqdK";
+  }
+})();
+</script>
+</body>
+</html>
